@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 type Variant = "primary" | "secondary" | "ghost-destructive";
 
-type buttonProps = {
+type ButtonProps = {
   variant?: Variant;
 } & ComponentProps<"button">;
 
@@ -11,13 +11,13 @@ export function Button({
   variant = "primary",
   className,
   ...props
-}: buttonProps) {
+}: ButtonProps) {
   return (
     <button
       {...props}
       className={twMerge(
+        "transition-colors rounded px-2 py-1 disabled:opacity-30 disabled:cursor-not-allowed",
         getVariantStyles(variant),
-        "transition-colors rounded-xl px-2 py-1 disabled:opacity-30 disabled:cursor-not-allowed",
         className,
       )}
     />
